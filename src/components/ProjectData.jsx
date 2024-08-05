@@ -2,7 +2,7 @@ import React from "react";
 const ProjectData = [
       {
         language: "MERN",
-        projectImage:"https://drive.google.com/file/d/1V1430vfxwVAUJyGFilX1uZYLLnwfNAV4/view?usp=sharing",
+        projectImage:"https://www.shutterstock.com/image-vector/people-all-over-world-remote-job-2139054359",
         projectName: " Nediaz",
         disc: "Nediaz is an innovative platform designed to connect job seekers and job offerers, as well as business seekers and business offerer.The platform facilitates seamless interactions by providing a robust system for categorizing and locating opportunities.Nediaz aims to streamline the process of finding and offering jobs and business opportunities, making it a one-stop platform for professionals and entrepreneurs to achieve their goals.",
         url: "https://nediaz.com"
