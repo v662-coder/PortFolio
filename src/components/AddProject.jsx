@@ -76,12 +76,6 @@ const AddProject = () => {
                         : ""
                 }
 
-
-
-
-
-
-
             </div>
 
         </>

@@ -1,93 +1,155 @@
-import React ,{useRef, useState} from "react";
+import React, { useRef, useState } from "react";
 import BottomNavbar from "./components/BottomNavbar";
 import FooterDetails from "./components/Footer";
 
-const Contact=()=>{
-    const [isAnswerActive ,setAnswerActive]=useState(false)
+const Contact = () => {
 
-    const questionIconRotate = useRef()
-    const handleQuestionIcon=()=>{
-        
-       
-        questionIconRotate.current.classList.toggle("question-icon-active")
-        isAnswerActive==false?setAnswerActive(true): setAnswerActive(false)
+  const [showGradAnswer, setShowGradAnswer] = useState(false);
+  const [showExpAnswer, setShowExpAnswer] = useState(false);
 
-    }
-    return(
-        <>
-        <div className="contact-container" data-aos='fade-right'>
-            <div className="first-container">
-                <div className="dictoration-line">
+  const gradIcon = useRef();
+  const expIcon = useRef();
 
-                    <div className="line"></div>
-                    <div className="dot"></div>
-                </div>
-                <div className="title">
-                    <h1>Get In Touch</h1>
+  const handleGradQuestion = () => {
+    gradIcon.current.classList.toggle("question-icon-active");
+    setShowGradAnswer(!showGradAnswer);
+  };
 
-                </div>
-                <div className="desc">
-                    <h3> you would like to have a WebApp or Website built by me, please contact me by submitting the form below and I will get back to you as soon as possible.</h3>
-                   
-                </div>
-                <div className="send-email">
-                    <h2>Send me a message !</h2>
-                    <h3>Email : vishnuchaurasiya1101@gmail.com</h3>
-                    <h3>Phone: +91-7991510913 , 7071181677</h3>
-                </div>
-                <div className="send-email">
-                    <h2> Parmanent Adress :</h2>
-                    <h3>Sahasi Post-Hardi Chak , Khajani, Gorakhpur, Uttar Pradesh - 273406</h3>
-                </div>
+  const handleExpQuestion = () => {
+    expIcon.current.classList.toggle("question-icon-active");
+    setShowExpAnswer(!showExpAnswer);
+  };
 
-            </div>
-            
-                
+  return (
+    <>
+      <div className="contact-container" data-aos="fade-right">
 
-            <div className="second-container" data-aos='fade-right'>
-            <div className="input-field">
-                <input type="text" name="name" id="name" placeholder="name" />
-            </div>
-            <div className="input-field">
-                <input type="email" name="email" id="email" placeholder="email"/>
-            </div>
-            <div className="input-field">
-                <input type="phone" name="phone" id="phone" placeholder="phone number" />
-            </div>
-            <div className="input-area">
-                <textarea name="message" id="" cols="30" rows="10" placeholder="message"></textarea>
-            </div>
-            <div className="button-field">
-                <button>send</button>
-            </div>
+        {/* LEFT SIDE */}
+        <div className="first-container">
 
-            </div>
+          <div className="dictoration-line">
+            <div className="line"></div>
+            <div className="dot"></div>
+          </div>
+
+          <div className="title">
+            <h1>Get In Touch</h1>
+          </div>
+
+          <div className="desc">
+            <h3>
+              If you are looking for a Full Stack Developer who can build modern,
+              scalable and responsive web applications using React.js, Node.js,
+              Express.js, MongoDB or Vue.js, feel free to contact me.
+              I would love to collaborate and help grow your business through technology.
+            </h3>
+          </div>
+
+          <div className="send-email">
+            <h2>Contact Details</h2>
+            <h3>Email : vishnuchaurasiya1101@gmail.com</h3>
+            <h3>Phone : +91 7991510913</h3>
+            <h3>Location : Gorakhpur, Uttar Predesh</h3>
+          </div>
+
+          <div className="send-email">
+            <h2>Permanent Address</h2>
+            <h3>
+              Sahasi Post-Hardi Chak, Khajani, Gorakhpur,
+              Uttar Pradesh - 273406
+            </h3>
+          </div>
+
         </div>
-        <div className="question-container" data-aos='fade-right'>
-            <div className="question-title">
-                <h1>Have any Question ?</h1>
-            </div>
-            <div className="question" onClick={handleQuestionIcon}>
-                <div className="question-1">
-                    <h1>When are you Graduate ? </h1>
 
-                </div>
-                <div className="question-icon"   >
-                    <i  className="fas fa-plus"  ref={questionIconRotate}></i>
-                </div>
-                
-            </div>
-            {
-                isAnswerActive?<div className="answer">
-                    I am Graduate from Rajiya Engineering College Banda in Information Technology, Which is 
-                    affiliated to Dr. A P J Abdul Kalam Technical University, Lucknow in 2023 . I am professional web Developer and Currently Looking for a Job.
-                </div>:""
+        {/* RIGHT SIDE FORM */}
+        <div className="second-container" data-aos="fade-left">
 
-            }
+          <div className="input-field">
+            <input type="text" placeholder="Your Name" />
+          </div>
+
+          <div className="input-field">
+            <input type="email" placeholder="Your Email" />
+          </div>
+
+          <div className="input-field">
+            <input type="tel" placeholder="Phone Number" />
+          </div>
+
+          <div className="input-area">
+            <textarea rows="8" placeholder="Write your message"></textarea>
+          </div>
+
+          <div className="button-field">
+            <button>Send Message</button>
+          </div>
+
         </div>
-        <FooterDetails/>
-        <BottomNavbar/>
-        </>
-    )
-}
+
+      </div>
+
+      {/* FAQ SECTION */}
+
+      <div className="question-container" data-aos="fade-right">
+
+        <div className="question-title">
+          <h1>Have Any Question?</h1>
+        </div>
+
+        {/* Graduation Question */}
+
+        <div className="question" onClick={handleGradQuestion}>
+
+          <div className="question-1">
+            <h1>When did you graduate?</h1>
+          </div>
+
+          <div className="question-icon">
+            <i className="fas fa-plus" ref={gradIcon}></i>
+          </div>
+
+        </div>
+
+        {showGradAnswer && (
+          <div className="answer">
+            I completed my B.Tech in Information Technology from
+            Rajkiya Engineering College Banda, affiliated with
+            Dr. A.P.J. Abdul Kalam Technical University, Lucknow in 2023.
+            I am a passionate Full Stack Developer specializing in the MERN stack.
+          </div>
+        )}
+
+        {/* Experience Question */}
+
+        <div className="question" onClick={handleExpQuestion}>
+
+          <div className="question-1">
+            <h1>Do you have professional experience?</h1>
+          </div>
+
+          <div className="question-icon">
+            <i className="fas fa-plus" ref={expIcon}></i>
+          </div>
+
+        </div>
+
+        {showExpAnswer && (
+          <div className="answer">
+            Yes, I have around 2 years of professional experience as a
+            Full Stack Developer at Agami Technology, Noida.
+
+           I have worked on scalable applications like Nediaz (Job Marketplace Platform) and Schezy (School Management System) using React.js, Node.js, Express.js, and MongoDB
+          </div>
+        )}
+
+      </div>
+
+      <FooterDetails />
+      <BottomNavbar />
+
+    </>
+  );
+};
+
 export default Contact;
